@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Aviso Legal | Carenas Guía"
+  description="Aviso Legal de Carenas Guía, web independiente de divulgación cultural y turística sobre Carenas, Zaragoza."
+>
+  <Header />
+  <main class="mx-auto max-w-3xl px-5 py-10 md:py-16">
+    <article class="card p-6 md:p-10">
+      <h1 class="text-4xl font-black tracking-tight" style="color: var(--text);">Aviso Legal</h1>
+      <p class="mt-2 text-sm" style="color: var(--text-secondary);">Última actualización: junio de 2026</p>
+
+      <div class="mt-10 space-y-8 leading-7" style="color: var(--text-secondary);">
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">1. Datos del titular</h2>
+          <p class="mt-3">
+            <strong>Carenas Guía</strong> es una web independiente de divulgación cultural y turística sobre el municipio de Carenas (Zaragoza, España).
+          </p>
+          <p class="mt-3">
+            <strong>Correo de contacto:</strong> <a href="mailto:hola@carenasguia.es" style="color: var(--badge-text);">hola@carenasguia.es</a>
+          </p>
+          <p class="mt-3">
+            Esta web no tiene ánimo de lucro y no representa a ninguna institución pública ni privada.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">2. Propiedad intelectual</h2>
+          <p class="mt-3">
+            Los textos, imágenes y contenidos publicados en esta web son propiedad de sus respectivos autores. Las fotografías de lugares específicos proceden de fuentes con licencia abierta (Wikimedia Commons, Unsplash) o han sido cedidas por colaboradores locales.
+          </p>
+          <p class="mt-3">
+            Los datos prácticos (teléfonos, direcciones, horarios) se han obtenido de fuentes públicas como Google Places, fuentes oficiales del Gobierno de Aragón y portales municipales, y se ofrecen a título informativo.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">3. Responsabilidad</h2>
+          <p class="mt-3">
+            Esta web se esfuerza por mantener la información actualizada, pero no garantiza la exactitud, integridad o vigencia de los datos publicados. Los horarios, teléfonos y servicios pueden cambiar sin previo aviso. Se recomienda contactar directamente con cada establecimiento antes de visitarlo.
+          </p>
+          <p class="mt-3">
+            Carenas Guía no se hace responsable de los daños o perjuicios derivados del uso de la información contenida en esta web.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">4. Enlaces a terceros</h2>
+          <p class="mt-3">
+            Esta web contiene enlaces a sitios externos como Google Maps, Booking.com, redes sociales y portales oficiales. Carenas Guía no tiene control sobre el contenido de dichos sitios ni asume responsabilidad alguna por ellos.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">5. Legislación aplicable</h2>
+          <p class="mt-3">
+            Este aviso legal se rige por la legislación española. Cualquier controversia se someterá a los juzgados y tribunales de la provincia de Zaragoza.
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

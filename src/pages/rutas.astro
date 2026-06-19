@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PlaceGrid from '../components/PlaceGrid.astro';
+import { placesByType } from '../lib/utils';
+
+const items = placesByType('Rutas');
+---
+
+<BaseLayout
+  title="Rutas y senderismo en Carenas | Embalse de La Tranquera"
+  description="Rutas y senderismo en Carenas: Embalse de La Tranquera, Castillo de Somet y excursiones cercanas."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow="Rutas"
+        title="Rutas simples para combinar pueblo, paisaje y embalse."
+        description="La idea es convertir cada ruta en una página útil con mapa, dificultad, distancia, duración, parking y enlaces a tracks externos cuando convenga."
+        primaryText="Ver mapa"
+        primaryHref="/mapa/"
+        secondaryText="Qué ver"
+        secondaryHref="/que-ver/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Senderismo"
+        title="Rutas base para completar."
+        description="Fichas iniciales para trabajar sobre el terreno y añadir datos reales de distancia, duración y dificultad."
+      />
+      <PlaceGrid places={items} emptyText="Falta recopilar rutas." />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

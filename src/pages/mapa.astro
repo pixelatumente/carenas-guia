@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { places } from '../lib/utils';
+
+const grouped = places.reduce((acc, place) => {
+  if (!acc[place.type]) acc[place.type] = [];
+  acc[place.type].push(place);
+  return acc;
+}, {} as Record<string, any[]>);
+---
+
+<BaseLayout
+  title="Mapa de Carenas | Qué ver, dormir y visitar"
+  description="Mapa de Carenas con puntos de interés, alojamientos, rutas y excursiones cercanas."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow="Mapa"
+        title="Todos los puntos en una sola vista."
+        description="Esta página está preparada para mostrar un mapa interactivo o una lista ordenada por tipo. Por ahora usa enlaces directos a Google Maps."
+        primaryText="Ver rutas"
+        primaryHref="/rutas/"
+        secondaryText="Colaborar"
+        secondaryHref="/publicar/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Mapa"
+        title="Puntos para visitar, dormir y recorrer."
+        description="Lista base con enlaces a Google Maps. Más adelante se puede sustituir por un mapa interactivo ligero."
+      />
+
+      <div class="space-y-6">
+        {Object.entries(grouped).map(([type, items]) => (
+          <div class="card overflow-hidden">
+            <div class="border-b px-5 py-4" style="border-color: var(--line); background: var(--surface-muted);">
+              <h2 class="text-xl font-black tracking-tight" style="color: var(--text);">{type}</h2>
+            </div>
+            <div class="divide-y" style="border-color: var(--line);">
+              {items.map((place) => (
+                <a href={place.mapsUrl} target="_blank" rel="noopener noreferrer" class="hover-teal-bg block px-5 py-4 transition">
+                  <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                    <span class="font-bold" style="color: var(--text);">{place.name}</span>
+                    <span class="text-sm font-bold" style="color: var(--badge-text);">Abrir en Maps →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

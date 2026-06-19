@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Política de Privacidad | Carenas Guía"
+  description="Política de Privacidad de Carenas Guía. Información sobre el tratamiento de datos personales en cumplimiento del RGPD."
+>
+  <Header />
+  <main class="mx-auto max-w-3xl px-5 py-10 md:py-16">
+    <article class="card p-6 md:p-10">
+      <h1 class="text-4xl font-black tracking-tight" style="color: var(--text);">Política de Privacidad</h1>
+      <p class="mt-2 text-sm" style="color: var(--text-secondary);">Última actualización: junio de 2026</p>
+
+      <div class="mt-10 space-y-8 leading-7" style="color: var(--text-secondary);">
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">1. Responsable del tratamiento</h2>
+          <p class="mt-3">
+            El responsable de esta web es el titular de <strong>Carenas Guía</strong>, un proyecto independiente de divulgación cultural y turística. Puedes contactar a través del correo <a href="mailto:hola@carenasguia.es" style="color: var(--badge-text);">hola@carenasguia.es</a>.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">2. Datos que recogemos</h2>
+          <p class="mt-3">
+            Esta web <strong>no recoge datos personales de forma directa</strong>. No dispone de formularios con registro, sistemas de comentarios, boletines de suscripción ni bases de datos de usuarios.
+          </p>
+          <p class="mt-3">
+            El formulario de contacto existente utiliza el protocolo <code>mailto:</code>, por lo que los datos se envían directamente al correo del destinatario a través del cliente de correo del usuario. Carenas Guía no almacena ni procesa esos datos en ningún servidor intermedio.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">3. Datos de terceros</h2>
+          <p class="mt-3">
+            Al visitar esta web, servicios de terceros pueden recoger cierta información:
+          </p>
+          <ul class="mt-3 list-disc pl-6 space-y-2">
+            <li><strong>Cloudflare Pages</strong> — como proveedor de alojamiento y CDN, puede registrar direcciones IP con fines de seguridad y rendimiento. Consulta su <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener" style="color: var(--badge-text);">política de privacidad</a>.</li>
+            <li><strong>Google Fonts</strong> — las fuentes tipográficas pueden registrar la IP del usuario al cargarse. Consulta su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--badge-text);">política de privacidad</a>.</li>
+          </ul>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">4. Finalidad del tratamiento</h2>
+          <p class="mt-3">
+            La única finalidad de esta web es ofrecer información turística y cultural sobre Carenas. No se realiza ningún tratamiento de datos personales más allá del inherente a la propia navegación por internet.
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">5. Derechos del usuario</h2>
+          <p class="mt-3">
+            De acuerdo con el RGPD, todo usuario tiene derecho a acceder, rectificar, suprimir, limitar el tratamiento y oponerse al tratamiento de sus datos personales, así como a solicitar la portabilidad de los mismos.
+          </p>
+          <p class="mt-3">
+            Puedes ejercer estos derechos enviando un correo a <a href="mailto:hola@carenasguia.es" style="color: var(--badge-text);">hola@carenasguia.es</a>.
+          </p>
+          <p class="mt-3">
+            Si consideras que tus derechos no se han atendido correctamente, puedes presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener" style="color: var(--badge-text);">www.aepd.es</a>).
+          </p>
+        </section>
+
+        <hr style="border-color: var(--line);" />
+
+        <section>
+          <h2 class="text-xl font-black" style="color: var(--text);">6. Conservación de datos</h2>
+          <p class="mt-3">
+            Al no recogerse datos personales de forma directa, no existe plazo de conservación aplicable por parte de esta web. Los datos que pudieran ser registrados por terceros (Cloudflare, Google) se rigen por sus respectivas políticas de privacidad.
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

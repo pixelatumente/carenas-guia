@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1128"/>
+      <stop offset="50%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#1c1917"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glow2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <circle cx="200" cy="150" r="300" fill="url(#glow1)"/>
+  <circle cx="1000" cy="450" r="250" fill="url(#glow2)"/>
+  <text x="80" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="82" font-weight="800" fill="#ffffff">Carenas</text>
+  <text x="80" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="82" font-weight="800" fill="#ffffff">Guía</text>
+  <text x="80" y="450" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#94a3b8">Qué ver · Dónde dormir · Rutas · Mapa</text>
+  <rect x="80" y="500" width="60" height="4" rx="2" fill="#14b8a6"/>
+  <text x="80" y="555" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#64748b">Carenas, Zaragoza · Embalse de La Tranquera</text>
+</svg>

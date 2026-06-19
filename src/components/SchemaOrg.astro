@@ -1,0 +1,15 @@
+---
+interface Props {
+  type: string;
+  data: Record<string, any>;
+}
+
+const { type, data } = Astro.props;
+const payload = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  ...data,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(payload)} />

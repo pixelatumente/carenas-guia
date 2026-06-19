@@ -1,0 +1,289 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --color-brand-50: #ecfeff;
+  --color-brand-100: #cffafe;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-earth-50: #fafaf6;
+  --color-earth-100: #f2f0e8;
+  --color-earth-200: #e6e1d4;
+  --color-earth-700: #4a4036;
+  --color-earth-900: #1f1b16;
+  --font-sans: "InterVariable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== Light mode (default) ===== */
+:root {
+  color-scheme: light dark;
+  --page-bg: #fbfaf7;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-solid: #ffffff;
+  --surface-muted: #f8fafc;
+  --text: #1f1b16;
+  --text-secondary: #665f55;
+  --text-muted: #94a3b8;
+  --line: rgba(74, 64, 54, 0.14);
+  --line-strong: rgba(74, 64, 54, 0.22);
+  --badge-bg: #ecfeff;
+  --badge-text: #0f766e;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-border: rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 24px 70px rgba(31, 27, 22, 0.07);
+  --shadow-card-hover: 0 28px 80px rgba(31, 27, 22, 0.13);
+  --shadow-btn-primary: 0 12px 30px rgba(31, 27, 22, 0.16);
+  --input-bg: #ffffff;
+  --tag-bg: #f1f5f9;
+  --tag-text: #475569;
+}
+
+/* ===== Dark mode (via class toggle) ===== */
+html.dark {
+  color-scheme: dark;
+  --page-bg: #0c0a09;
+  --surface: rgba(28, 25, 23, 0.88);
+  --surface-solid: #1c1917;
+  --surface-muted: #292524;
+  --text: #f5f5f4;
+  --text-secondary: #a8a29e;
+  --text-muted: #78716c;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --badge-bg: rgba(20, 184, 166, 0.15);
+  --badge-text: #5eead4;
+  --header-bg: rgba(12, 10, 9, 0.88);
+  --header-border: rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 28px 80px rgba(0, 0, 0, 0.5);
+  --shadow-btn-primary: 0 12px 30px rgba(0, 0, 0, 0.4);
+  --input-bg: #292524;
+  --tag-bg: #292524;
+  --tag-text: #a8a29e;
+}
+
+/* ===== Dark mode body background ===== */
+html.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.06), transparent 34rem),
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 28rem),
+    var(--page-bg);
+}
+
+/* ===== Dark mode nav hover ===== */
+html.dark nav a:hover {
+  background: rgba(20, 184, 166, 0.1) !important;
+  color: #5eead4 !important;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.1), transparent 34rem),
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent 28rem),
+    var(--page-bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 300ms ease, color 300ms ease;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-sm {
+  min-height: 2.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--page-bg);
+  box-shadow: var(--shadow-btn-primary);
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease, transform 160ms ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-soft {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  transition: background 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+
+.btn-soft:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.1);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+/* ===== Theme toggle button ===== */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--badge-text);
+  color: var(--badge-text);
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: background 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: background 300ms ease, color 300ms ease;
+}
+
+/* ===== Search results dropdown ===== */
+.sr-results {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--surface-solid);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.sr-item {
+  display: block;
+  padding: 0.95rem 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.sr-item:last-child {
+  border-bottom: 0;
+}
+
+.sr-item:hover {
+  background: var(--surface-muted);
+}
+
+.sr-title {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* ===== Input / Search ===== */
+.search-input {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: var(--input-bg);
+  padding: 0.9rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  outline: none;
+  box-shadow: var(--shadow-card);
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 300ms ease, color 300ms ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.search-input:focus {
+  border-color: var(--color-brand-500);
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
+}
+
+/* ===== Teal text utility ===== */
+.text-teal-dark {
+  color: var(--badge-text);
+}
+
+/* ===== Hover teal (dark-mode safe) ===== */
+.hover-teal-bg:hover {
+  background: rgba(20, 184, 166, 0.08);
+}
+.hover-teal-text:hover {
+  color: var(--badge-text);
+}
+
+/* ===== Misc ===== */
+.inset-glow {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}

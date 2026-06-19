@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import SourceList from '../../components/SourceList.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import { places, relatedPlaces, slugify } from '../../lib/utils';
+import { getGallery, getPhoto } from '../../lib/photos';
+
+export function getStaticPaths() {
+  return places.map((place) => ({
+    params: { slug: place.slug },
+    props: { place },
+  }));
+}
+
+const { place } = Astro.props;
+const related = relatedPlaces(place, 3);
+const hours = place.hours?.length ? place.hours : ['Horario pendiente de verificar'];
+const cover = place.image || getPhoto(place.slug);
+const gallery = getGallery(place.slug, place.gallery);
+const typeSchema = {
+  Pueblo: 'WebSite',
+  Patrimonio: 'TouristAttraction',
+  Naturaleza: 'TouristAttraction',
+  Alojamiento: 'LodgingBusiness',
+  Excursiones: 'TouristAttraction',
+  Servicios: 'LocalBusiness',
+  Rutas: 'TouristAttraction',
+}[place.type] || 'Place';
+
+const schemaData: Record<string, any> = {
+  name: place.name,
+  description: place.description,
+  url: Astro.url.href,
+};
+
+if (place.address) schemaData.address = place.address;
+if (place.phone) schemaData.telephone = place.phone;
+if (place.website) schemaData.url = place.website;
+if (place.image) schemaData.image = place.image;
+if (gallery.length) schemaData.image = [...(schemaData.image ? [schemaData.image] : []), ...gallery];
+if (place.sourceUrls?.length) schemaData.sameAs = place.sourceUrls;
+---
+
+<BaseLayout
+  title={`${place.name} | Carenas Guía`}
+  description={place.description}
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-8 md:py-12">
+      <nav aria-label="Breadcrumb" class="mb-6 text-sm font-semibold" style="color: var(--text-secondary);">
+        <a href="/" class="hover:text-teal-700" style="color: var(--text-secondary);">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href={`/categorias/${slugify(place.type)}/`} class="hover:text-teal-700" style="color: var(--text-secondary);">{place.type}</a>
+        <span class="mx-2">/</span>
+        <span style="color: var(--text);">{place.name}</span>
+      </nav>
+      <a href="/" class="inline-flex text-sm font-black hover:underline" style="color: var(--badge-text);">← Volver al inicio</a>
+    </section>
+
+    <section class="mx-auto grid max-w-6xl gap-6 px-5 md:grid-cols-[1.1fr_0.9fr] md:px-0">
+      <article class="card overflow-hidden">
+        {cover ? (
+          <img
+            src={cover}
+            alt={place.imageAlt || place.name}
+            loading="eager"
+            decoding="async"
+            class="h-72 w-full object-cover md:h-96"
+          />
+        ) : (
+          <div class="grid h-72 place-items-center text-6xl font-black tracking-tight md:h-96" style="background: linear-gradient(135deg, rgba(20,184,166,0.1), transparent, rgba(245,158,11,0.1)); color: var(--badge-text);">
+            {place.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('').toUpperCase()}
+          </div>
+        )}
+
+        <div class="p-6 md:p-8">
+          <span class="badge">{place.type}</span>
+          <h1 class="mt-5 text-4xl font-black tracking-tight md:text-5xl" style="color: var(--text);">{place.name}</h1>
+          <p class="mt-5 text-lg leading-8" style="color: var(--text-secondary);">{place.description}</p>
+
+          <div class="mt-8 grid gap-3 sm:grid-cols-2">
+            {place.mapsUrl && (
+              <a href={place.mapsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Abrir en Google Maps
+              </a>
+            )}
+            {place.website && (
+              <a href={place.website} target="_blank" rel="noopener noreferrer" class="btn btn-soft">
+                Visitar web
+              </a>
+            )}
+            {place.phone && (
+              <a href={`tel:${place.phone.replace(/\s/g, '')}`} class="btn btn-soft">
+                Llamar
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+
+      <aside class="space-y-5">
+        <div class="card p-6">
+          <h2 class="text-sm font-black uppercase tracking-[0.2em]" style="color: var(--text-secondary);">Datos básicos</h2>
+          <dl class="mt-5 space-y-4 text-sm">
+            <div>
+              <dt class="font-black" style="color: var(--text);">Tipo</dt>
+              <dd class="mt-1" style="color: var(--text-secondary);">{place.type}</dd>
+            </div>
+            {place.address && (
+              <div>
+                <dt class="font-black" style="color: var(--text);">Dirección</dt>
+                <dd class="mt-1" style="color: var(--text-secondary);">{place.address}</dd>
+              </div>
+            )}
+            {place.phone && (
+              <div>
+                <dt class="font-black" style="color: var(--text);">Teléfono</dt>
+                <dd class="mt-1" style="color: var(--text-secondary);">{place.phone}</dd>
+              </div>
+            )}
+            {place.rating && (
+              <div>
+                <dt class="font-black" style="color: var(--text);">Valoración</dt>
+                <dd class="mt-1" style="color: var(--text-secondary);">{place.rating} sobre 5 · {place.reviews} reseñas</dd>
+              </div>
+            )}
+          </dl>
+        </div>
+
+        <div class="card p-6">
+          <h2 class="text-sm font-black uppercase tracking-[0.2em]" style="color: var(--text-secondary);">Horario</h2>
+          <ul class="mt-4 space-y-2 text-sm leading-6" style="color: var(--text-secondary);">
+            {hours.map((hour) => <li>{hour}</li>)}
+          </ul>
+        </div>
+
+        <SourceList urls={place.sourceUrls} />
+      </aside>
+    </section>
+
+    {place.tags?.length > 0 && (
+      <section class="mx-auto max-w-6xl px-5 py-10 md:px-0">
+        <div class="flex flex-wrap gap-2">
+          {place.tags.map((tag: string) => (
+            <span class="rounded-full px-4 py-2 text-sm font-bold shadow-sm" style="background: var(--tag-bg); color: var(--tag-text);">{tag}</span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <PhotoGallery images={gallery} title={`Fotos de ${place.name}`} />
+
+    {related.length > 0 && (
+      <section class="mx-auto max-w-6xl px-5 py-10 md:py-16 md:px-0">
+        <SectionHeading
+          eyebrow="Relacionados"
+          title="Más lugares que te pueden interesar."
+          description=""
+        />
+        <div class="grid gap-4 md:grid-cols-3">
+          {related.map((item) => <PlaceCard place={item} compact />)}
+        </div>
+      </section>
+    )}
+
+    <section class="mx-auto max-w-6xl px-5 pb-16 md:px-0">
+      <a href={`/publicar/?lugar=${place.slug}`} class="inline-flex text-sm font-black hover:underline" style="color: var(--badge-text);">
+        ¿Falta algún dato en esta ficha? Corregir →
+      </a>
+    </section>
+  </main>
+  <Footer />
+  <SchemaOrg type={typeSchema} data={schemaData} />
+</BaseLayout>

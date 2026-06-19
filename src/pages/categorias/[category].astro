@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PlaceGrid from '../../components/PlaceGrid.astro';
+import { categories, places, slugify } from '../../lib/utils';
+
+export function getStaticPaths() {
+  return categories.map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const items = places.filter((place) => slugify(place.type) === category.slug);
+
+const copy = {
+  pueblo: {
+    heroDesc: "Conoce Carenas, un municipio tranquilo de la provincia de Zaragoza, en la Comarca de Calatayud, junto al Embalse de La Tranquera.",
+    sectionDesc: "Información práctica del pueblo: ubicación, accesos y entorno natural.",
+  },
+  patrimonio: {
+    heroDesc: "Castillo de Somet, ermitas e iglesias. El patrimonio de Carenas combina historia medieval, arquitectura barroca y vestigios arqueológicos junto al embalse.",
+    sectionDesc: "Tres puntos patrimoniales documentados con datos de Google Places y fuentes oficiales del Gobierno de Aragón.",
+  },
+  naturaleza: {
+    heroDesc: "El Embalse de La Tranquera es el gran atractivo natural de Carenas. Ideal para rutas, fotografía, baño en temporada y excursiones en familia.",
+    sectionDesc: "Espacios naturales alrededor de Carenas con datos prácticos para visitarlos.",
+  },
+  alojamiento: {
+    heroDesc: "Tres alojamientos verificados con datos reales: desde suites con jacuzzi en el centro del pueblo hasta apartamentos con spa en cueva y casas rurales con jardín junto al río Piedra.",
+    sectionDesc: "Datos verificados con teléfono, web, valoraciones y enlace directo a reserva.",
+  },
+  excursiones: {
+    heroDesc: "Monasterio de Piedra, Jaraba y Nuévalos. Tres excursiones cercanas a Carenas para completar tu visita con naturaleza, baños termales y patrimonio.",
+    sectionDesc: "Excursiones recomendadas a menos de 20 minutos en coche desde Carenas.",
+  },
+  servicios: {
+    heroDesc: "Ayuntamiento de Carenas con datos de contacto, sede electrónica y servicios municipales para residentes y visitantes.",
+    sectionDesc: "Servicios públicos disponibles en Carenas con teléfono y web verificados.",
+  },
+  rutas: {
+    heroDesc: "Dos rutas de senderismo que conectan Carenas con el Embalse de La Tranquera y el Castillo de Somet. Enlaces a tracks en Wikiloc.",
+    sectionDesc: "Rutas base para recorrer el entorno de Carenas. Distancia, duración y dificultad pendientes de verificar sobre el terreno.",
+  },
+  restaurantes: {
+    heroDesc: "Bar Sala con tapas caseras en la plaza del pueblo (4.8⭐) y Bar Merendero Los Cañizos junto al embalse con carnes a la brasa. Además, Restaurante Puerta de Terrer en Calatayud como opción de referencia.",
+    sectionDesc: "Dónde comer y tomar algo en Carenas y alrededores, con horarios y valoraciones reales.",
+  },
+};
+
+const c = copy[category.slug] || {
+  heroDesc: `Guía de ${category.name.toLowerCase()} en Carenas con información práctica.`,
+  sectionDesc: `Datos y fichas de ${category.name.toLowerCase()} en Carenas.`,
+};
+---
+
+<BaseLayout
+  title={`${category.name} en Carenas | Carenas Guía`}
+  description={`${category.name} en Carenas, Zaragoza: ${c.heroDesc.slice(0, 155)}`}
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow={category.name}
+        title={`${category.name} en Carenas.`}
+        description={c.heroDesc}
+        primaryText="Ver mapa"
+        primaryHref="/mapa/"
+        secondaryText="Colaborar"
+        secondaryHref="/publicar/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Listado"
+        title={category.name}
+        description={c.sectionDesc}
+      />
+      <PlaceGrid places={items} emptyText={`Todavía no hay fichas de ${category.name.toLowerCase()}.`} />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

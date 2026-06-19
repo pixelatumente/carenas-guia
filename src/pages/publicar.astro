@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { site } from '../lib/utils';
+---
+
+<BaseLayout
+  title="Colabora con la guía de Carenas | Corregir datos"
+  description="Página para colaborar, corregir datos y enviar información local sobre Carenas."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow="Colabora"
+        title="Si falta un dato, mejor lo corregimos entre todos."
+        description="La guía será más útil si los propios negocios, alojamientos y vecinos pueden revisar nombres, teléfonos, horarios, enlaces y eventos."
+        primaryText="Enviar corrección por email"
+        primaryHref={`mailto:${site.email}?subject=Correcci%C3%B3n%20datos%20Carenas%20Gu%C3%ADa`}
+        secondaryText="Volver al mapa"
+        secondaryHref="/mapa/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Datos útiles"
+        title="Qué puedes enviar para mejorar una ficha."
+        description="No hace falta escribir un texto perfecto. Con datos concretos basta."
+      />
+
+      <div class="grid gap-4 md:grid-cols-2">
+        {[
+          'Nombre exacto del negocio o lugar',
+          'Dirección correcta',
+          'Teléfono o WhatsApp',
+          'Web oficial o enlace de reserva',
+          'Horarios reales',
+          'Fotos propias si quieres compartirlas',
+          'Eventos, fiestas o cambios de temporada',
+          'Enlace correcto a Google Maps'
+        ].map((item) => (
+          <div class="card p-5">
+            <p class="text-base font-black" style="color: var(--text);">{item}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-3xl px-5 pb-16">
+      <div class="card p-6 md:p-8">
+        <h2 class="text-2xl font-black tracking-tight" style="color: var(--text);">Formulario rápido</h2>
+        <p class="mt-3 leading-7" style="color: var(--text-secondary);">
+          Por ahora usa email para evitar backend. Más adelante se puede conectar con Formspree, Cloudflare Workers o un formulario estático.
+        </p>
+        <form
+          action={`mailto:${site.email}`}
+          method="post"
+          enctype="text/plain"
+          class="mt-6 grid gap-4"
+        >
+          <input name="nombre" placeholder="Tu nombre" style="border: 1px solid var(--line); background: var(--input-bg); color: var(--text);" class="rounded-2xl px-4 py-3 font-semibold outline-none transition focus:border-teal-500 focus:ring-4" />
+          <input name="email" type="email" placeholder="Tu email" style="border: 1px solid var(--line); background: var(--input-bg); color: var(--text);" class="rounded-2xl px-4 py-3 font-semibold outline-none transition focus:border-teal-500 focus:ring-4" />
+          <textarea name="mensaje" rows="6" placeholder="Qué falta, qué corregir o qué enlace añadir..." style="border: 1px solid var(--line); background: var(--input-bg); color: var(--text);" class="rounded-2xl px-4 py-3 font-semibold outline-none transition focus:border-teal-500 focus:ring-4"></textarea>
+          <button class="btn btn-primary" type="submit">Enviar correo</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

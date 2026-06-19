@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BaseLayout
+  title="La radiografía demográfica de Carenas: 169 habitantes y una edad media de 58 años | Carenas Guía"
+  description="Carenas pierde población desde 1996. Con 169 vecinos, una edad media de 58,4 años y un 40% de mayores de 65, el pueblo afronta el mayor desafío de su historia."
+>
+  <Header />
+  <main class="px-5 py-10 md:py-16">
+    <BlogPost
+      title="La radiografía demográfica de Carenas: 169 habitantes y una edad media de 58 años"
+      description="Carenas ha perdido un tercio de su población desde 1996. Con 169 habitantes censados en 2025, una edad media de 58,4 años y más de la mitad de los hogares ocupados por una sola persona, los datos dibujan el retrato de un municipio en lucha contra la despoblación."
+      pubDate="2026-06-01"
+    >
+
+<p>Los datos del INE no dejan lugar a dudas: Carenas es uno de esos pueblos aragoneses que se enfrentan a una realidad demográfica implacable. En 2025, el municipio cuenta con <strong>169 habitantes censados</strong>, un 32,7% menos que los 251 que tenía en 1996. Pero más allá de la cifra global, lo que preocupa es la estructura de esa población.</p>
+
+<h2>Una pirámide invertida</h2>
+
+<p>La edad media en Carenas es de <strong>58,4 años</strong>. Para ponerlo en contexto: la media de España ronda los 44 años. Esto significa que Carenas tiene 14 años más de promedio que el conjunto del país.</p>
+
+<p>Los datos más llamativos:</p>
+
+<ul>
+  <li><strong>40,4%</strong> de la población tiene más de 65 años (unas 68 personas).</li>
+  <li><strong>56,2%</strong> ha superado los 60 años.</li>
+  <li><strong>1,2%</strong> son menores de 18 años (apenas 2 o 3 personas).</li>
+  <li><strong>53,8%</strong> de los hogares son unipersonales, lo que sugiere muchas personas mayores viviendo solas.</li>
+</ul>
+
+<p>El índice de envejecimiento —que relaciona mayores de 65 con menores de 18— es de <strong>3.366,7</strong>. Esto significa que por cada menor hay casi 34 personas jubiladas. Un dato que explica por sí solo la falta de relevo generacional.</p>
+
+<h2>Más hombres que mujeres</h2>
+
+<p>La población de Carenas es mayoritariamente masculina: <strong>55,6% hombres frente a 44,4% mujeres</strong>. Este desequilibrio es común en el medio rural español y se explica por la migración femenina hacia las ciudades en busca de oportunidades laborales y educativas.</p>
+
+<h2>Un rayo de esperanza: saldo migratorio positivo</h2>
+
+<p>No todo son malas noticias. En 2025, el saldo migratorio de Carenas fue de <strong>+4 personas</strong>. Es una cifra modesta, pero indica que han llegado más personas de las que se han ido. En un pueblo de 169 habitantes, cuatro nuevos vecinos suponen un incremento del 2,4%. Si la tendencia se mantuviera, Carenas podría estabilizar su población a medio plazo.</p>
+
+<h2>Bajo nivel formativo</h2>
+
+<p>El 16,2% de la población mayor de 16 años carece de estudios, y el 36,8% solo tiene la primera etapa de secundaria. Este perfil educativo limita las opciones de reconversión económica hacia sectores como el turismo cultural o los servicios digitales, que requieren formación específica.</p>
+
+<table style="border-collapse:collapse;width:100%;margin:1.5rem 0;">
+  <thead>
+    <tr style="border-bottom:2px solid var(--line);">
+      <th style="padding:0.75rem;text-align:left;font-weight:800;color:var(--text);">Año</th>
+      <th style="padding:0.75rem;text-align:left;font-weight:800;color:var(--text);">Población</th>
+      <th style="padding:0.75rem;text-align:left;font-weight:800;color:var(--text);">Variación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid var(--line);">
+      <td style="padding:0.75rem;color:var(--text);">1996</td>
+      <td style="padding:0.75rem;">251</td>
+      <td style="padding:0.75rem;">—</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--line);">
+      <td style="padding:0.75rem;color:var(--text);">2017</td>
+      <td style="padding:0.75rem;">174</td>
+      <td style="padding:0.75rem;">-30,7%</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--line);">
+      <td style="padding:0.75rem;color:var(--text);">2025</td>
+      <td style="padding:0.75rem;">169</td>
+      <td style="padding:0.75rem;">-32,7%</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="fuentes">
+<p><em>Fuentes: INE, TodoPueblos, <a href="/lugares/ayuntamiento-carenas/">Ayuntamiento de Carenas</a>.</em></p>
+</div>
+
+    </BlogPost>
+  </main>
+  <Footer />
+</BaseLayout>

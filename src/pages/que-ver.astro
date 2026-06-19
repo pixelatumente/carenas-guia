@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PlaceGrid from '../components/PlaceGrid.astro';
+import { placesByType } from '../lib/utils';
+
+const items = placesByType('Patrimonio').concat(placesByType('Naturaleza')).concat(placesByType('Pueblo'));
+---
+
+<BaseLayout
+  title="Qué ver en Carenas | Guía práctica"
+  description="Qué ver en Carenas: patrimonio, naturaleza, Embalse de La Tranquera, Castillo de Somet y alrededores."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow="Qué ver"
+        title="Carenas se visita mejor con una ruta clara."
+        description="Pueblo, patrimonio, embalse y excursiones cercanas en una misma guía. Esta página agrupa los puntos que conviene verificar y completar con horarios, accesos y fotos propias."
+        primaryText="Ver mapa"
+        primaryHref="/mapa/"
+        secondaryText="Ver rutas"
+        secondaryHref="/rutas/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Puntos de interés"
+        title="Patrimonio, naturaleza y pueblo."
+        description="Fichas base para crear rutas de visita y páginas SEO específicas por lugar."
+      />
+      <PlaceGrid places={items} emptyText="Falta recopilar puntos de interés." />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PlaceGrid from '../components/PlaceGrid.astro';
+import SearchBar from '../components/SearchBar.astro';
+import Stats from '../components/Stats.astro';
+import { places, featuredPlaces, categories } from '../lib/utils';
+
+const searchItems = places.map((place) => ({
+  title: place.name,
+  url: `/lugares/${place.slug}/`,
+}));
+
+const stats = [
+  { value: String(places.length), label: 'Lugares documentados' },
+  { value: String(categories.length), label: 'Categorías' },
+  { value: '100%', label: 'Gratuito' },
+];
+---
+
+<BaseLayout
+  title="Carenas Guía | Qué ver, dónde dormir y rutas en Carenas"
+  description="Guía práctica de Carenas, Zaragoza: qué ver, dónde dormir, rutas, mapa y alrededores del Embalse de La Tranquera."
+>
+  <Header />
+
+  <main>
+    <section class="mx-auto grid max-w-6xl gap-8 px-5 py-10 md:grid-cols-[1.2fr_0.8fr] md:py-16">
+      <Hero
+        eyebrow="Guía local"
+        title="Carenas, Zaragoza, sin ruido y con datos útiles."
+        description="Una guía rápida para visitar el pueblo, planificar rutas, encontrar alojamiento y descubrir el entorno del Embalse de La Tranquera y el Monasterio de Piedra."
+        primaryText="Empezar por qué ver"
+        primaryHref="/que-ver/"
+        secondaryText="Ver mapa"
+        secondaryHref="/mapa/"
+      />
+
+      <div class="card p-6">
+        <p class="text-sm font-black uppercase tracking-[0.22em]" style="color: var(--text-secondary);">Buscar rápido</p>
+        <div class="mt-4">
+          <SearchBar items={searchItems} />
+        </div>
+        <div class="mt-8">
+          <Stats stats={stats} />
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Planifica tu visita"
+        title="Todo lo que necesitas para tu escapada a Carenas."
+        description="17 lugares documentados con datos prácticos: teléfonos, webs, horarios, mapas y enlaces a reserva. Desde el bar del pueblo hasta rutas por el embalse."
+      />
+
+      <div class="grid gap-4 md:grid-cols-3">
+        <a href="/que-ver/" class="card p-6 transition hover:-translate-y-1" style="text-decoration: none; box-shadow: var(--shadow-card);">
+          <span class="badge">Qué ver</span>
+          <h2 class="mt-5 text-2xl font-black tracking-tight" style="color: var(--text);">Patrimonio, naturaleza y pueblo</h2>
+          <p class="mt-3 leading-7" style="color: var(--text-secondary);">Castillo de Somet, Embalse de La Tranquera, ermitas y el casco urbano de Carenas con fotos y datos prácticos.</p>
+          <span class="btn btn-soft btn-sm mt-6">Ver qué ver →</span>
+        </a>
+
+        <a href="/alojamiento/" class="card p-6 transition hover:-translate-y-1" style="text-decoration: none; box-shadow: var(--shadow-card);">
+          <span class="badge">Dónde dormir</span>
+          <h2 class="mt-5 text-2xl font-black tracking-tight" style="color: var(--text);">Casas rurales verificadas</h2>
+          <p class="mt-3 leading-7" style="color: var(--text-secondary);">Suites con jacuzzi, apartamentos con spa en cueva y casas rurales con jardín. Datos reales con teléfono y web.</p>
+          <span class="btn btn-soft btn-sm mt-6">Ver alojamiento →</span>
+        </a>
+
+        <a href="/donde-comer/" class="card p-6 transition hover:-translate-y-1" style="text-decoration: none; box-shadow: var(--shadow-card);">
+          <span class="badge">Dónde comer</span>
+          <h2 class="mt-5 text-2xl font-black tracking-tight" style="color: var(--text);">Bares y restaurantes</h2>
+          <p class="mt-3 leading-7" style="color: var(--text-secondary);">Bar Sala con tapas caseras y su salsa Moji Moji, merendero junto al embalse y restaurante de referencia en Calatayud.</p>
+          <span class="btn btn-soft btn-sm mt-6">Ver restaurantes →</span>
+        </a>
+
+        <a href="/rutas/" class="card p-6 transition hover:-translate-y-1" style="text-decoration: none; box-shadow: var(--shadow-card);">
+          <span class="badge">Rutas</span>
+          <h2 class="mt-5 text-2xl font-black tracking-tight" style="color: var(--text);">Senderismo y naturaleza</h2>
+          <p class="mt-3 leading-7" style="color: var(--text-secondary);">Rutas de senderismo que conectan Carenas con el Embalse de La Tranquera y el Castillo de Somet. Enlaces a tracks en Wikiloc.</p>
+          <span class="btn btn-soft btn-sm mt-6">Ver rutas →</span>
+        </a>
+
+        <a href="/mapa/" class="card p-6 transition hover:-translate-y-1" style="text-decoration: none; box-shadow: var(--shadow-card);">
+          <span class="badge">Mapa</span>
+          <h2 class="mt-5 text-2xl font-black tracking-tight" style="color: var(--text);">Todos los puntos en el mapa</h2>
+          <p class="mt-3 leading-7" style="color: var(--text-secondary);">16 localizaciones con enlace directo a Google Maps para organizar tu visita sobre el terreno.</p>
+          <span class="btn btn-soft btn-sm mt-6">Ver mapa →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Imagen de portada -->
+    <section class="relative overflow-hidden" style="height: 420px;">
+      <img
+        src="/images/carenas-vista-general.webp"
+        alt="Vista de Carenas desde el campo"
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover"
+        style="filter: grayscale(100%);"
+      />
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.35));"></div>
+      <div class="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-5 text-center" style="color: #333;">
+        <p class="text-sm font-black uppercase tracking-[0.28em] opacity-70">Comarca de Calatayud · Zaragoza</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl" style="color: #1a1a1a;">Descubre Carenas</h2>
+        <p class="mt-4 max-w-xl text-lg leading-8" style="color: #1a1a1a; text-shadow: 0 1px 4px rgba(255,255,255,0.5);">
+          Un pueblo tranquilo entre el Embalse de La Tranquera y el río Piedra, con más de 200 bodegas subterráneas y la ermita más grande de la comarca.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Destacados"
+        title="Lugares imprescindibles de Carenas."
+        description="Selección de los puntos más relevantes para conocer el pueblo, su patrimonio y los alrededores del Embalse de La Tranquera."
+      />
+
+      <PlaceGrid places={featuredPlaces(6)} />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <div class="card overflow-hidden">
+        <div class="grid gap-8 p-6 md:grid-cols-[0.9fr_1.1fr] md:p-10">
+          <div>
+            <p class="text-sm font-black uppercase tracking-[0.22em]" style="color: var(--badge-text);">¿Colaboras?</p>
+            <h2 class="mt-4 text-3xl font-black tracking-tight md:text-4xl" style="color: var(--text);">
+              ¿Falta algún dato o conoces un sitio nuevo?
+            </h2>
+            <p class="mt-4 leading-7" style="color: var(--text-secondary);">
+              La guía se construye con información local. Si tienes datos actualizados, horarios, teléfonos o conoces algún negocio nuevo, puedes enviarlo por email y lo añadimos.
+            </p>
+            <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href="/publicar/" class="btn btn-primary">Colaborar o corregir datos</a>
+              <a href="/mapa/" class="btn btn-soft">Ver mapa</a>
+            </div>
+          </div>
+
+          <div class="rounded-3xl p-6 text-white" style="background: #1c1917;">
+            <h3 class="text-lg font-black">Explorar por categorías</h3>
+            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+              {categories.map((category) => (
+                <a href={`/categorias/${category.slug}/`} class="rounded-2xl p-4 text-sm font-bold text-white no-underline transition hover:opacity-80" style="border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);">
+                  {category.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

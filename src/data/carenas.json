@@ -1,0 +1,710 @@
+{
+  "site": {
+    "title": "Carenas Guía",
+    "description": "Guía práctica de Carenas, Zaragoza: qué ver, dónde dormir, rutas, mapa y alrededores.",
+    "domain": "https://carenasguia.es",
+    "email": "hola@carenasguia.es"
+  },
+  "categories": [
+    {
+      "name": "Pueblo",
+      "slug": "pueblo",
+      "count": 1
+    },
+    {
+      "name": "Patrimonio",
+      "slug": "patrimonio",
+      "count": 5
+    },
+    {
+      "name": "Naturaleza",
+      "slug": "naturaleza",
+      "count": 1
+    },
+    {
+      "name": "Alojamiento",
+      "slug": "alojamiento",
+      "count": 3
+    },
+    {
+      "name": "Excursiones",
+      "slug": "excursiones",
+      "count": 3
+    },
+    {
+      "name": "Servicios",
+      "slug": "servicios",
+      "count": 5
+    },
+    {
+      "name": "Rutas",
+      "slug": "rutas",
+      "count": 2
+    },
+    {
+      "name": "Restaurantes",
+      "slug": "restaurantes",
+      "count": 3
+    }
+  ],
+  "places": [
+    {
+      "id": "carenas-pueblo",
+      "name": "Carenas",
+      "type": "Pueblo",
+      "slug": "carenas",
+      "short": "Pueblo de la provincia de Zaragoza, junto al Embalse de La Tranquera.",
+      "description": "Carenas es un municipio tranquilo de la provincia de Zaragoza, situado en la Comarca de la Comunidad de Calatayud. Su entorno combina patrimonio rural, caminos, vistas al Embalse de La Tranquera y excursiones cercanas como el Monasterio de Piedra, Jaraba, Nuévalos y Ateca.",
+      "address": "50212 Carenas, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=9478049710895443753&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "pueblo",
+        "zaragoza",
+        "comarca de calatayud"
+      ],
+      "sourceUrls": [
+        "https://es.wikipedia.org/wiki/Carenas",
+        "https://www.dpz.es/municipio/municipios/carenas"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "ermita-santa-ana",
+      "name": "Ermita de Santa Ana",
+      "type": "Patrimonio",
+      "slug": "ermita-de-santa-ana",
+      "short": "Ermita patrimonial de Carenas mencionada en fuentes de patrimonio aragonés.",
+      "description": "La Ermita de Santa Ana es uno de los puntos patrimoniales de Carenas. Conviene verificar acceso, horarios y estado de conservación antes de incluirla como visita principal.",
+      "address": "C. Sta. Ana, 37, 50212 Carenas, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=10435953691081663741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4,
+      "reviews": 2,
+      "hours": [],
+      "tags": [
+        "ermita",
+        "patrimonio",
+        "cultura"
+      ],
+      "sourceUrls": [
+        "https://es.wikipedia.org/wiki/Ermita_de_Santa_Ana_(Carenas)",
+        "http://www.sipca.es/censo/1-INM-ZAR-020-072-002/Ermita/de/Santa/Ana.html"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "iglesia-asuncion",
+      "name": "Iglesia de Nuestra Señora de la Asunción",
+      "type": "Patrimonio",
+      "slug": "iglesia-nuestra-senora-asuncion",
+      "short": "Iglesia parroquial de Carenas y punto patrimonial del casco urbano.",
+      "description": "La Iglesia de Nuestra Señora de la Asunción es uno de los edificios religiosos de referencia en Carenas. Es un buen punto para una ruta tranquila por el casco urbano.",
+      "address": "C. Sta. María, 21, 50212 Carenas, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=12954236896411848035&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 3.5,
+      "reviews": 2,
+      "hours": [],
+      "tags": [
+        "iglesia",
+        "patrimonio",
+        "casco urbano"
+      ],
+      "sourceUrls": [
+        "http://www.calatayud.org/enciclopedia/carenas_asuncion.htm",
+        "https://gcatholic.org/churches/europe-south/97340"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "castillo-de-somet",
+      "name": "Castillo de Somet",
+      "type": "Patrimonio",
+      "slug": "castillo-de-somet",
+      "short": "Zona arqueológica y antigua fortificación en el entorno del Embalse de La Tranquera.",
+      "description": "El Castillo de Somet, también conocido como Somed, es una zona arqueológica situada en el término municipal de Carenas. Es un punto interesante para combinar historia, paisaje y excursión al embalse.",
+      "address": "50212 Carenas, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=3232385992387596503&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.5,
+      "reviews": 6,
+      "hours": [
+        "lunes: Abierto 24 horas",
+        "martes: Abierto 24 horas",
+        "miércoles: Abierto 24 horas",
+        "jueves: Abierto 24 horas",
+        "viernes: Abierto 24 horas",
+        "sábado: Abierto 24 horas",
+        "domingo: Abierto 24 horas"
+      ],
+      "tags": [
+        "castillo",
+        "arqueología",
+        "embalse"
+      ],
+      "sourceUrls": [
+        "https://es.wikipedia.org/wiki/Castillo_de_Somet",
+        "https://castillosnet.org/monumento.php?r=Z-CAS-186&seo=castillo-de-somet-carenas-zaragoza-aragon"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "embalse-tranquera",
+      "name": "Embalse de La Tranquera",
+      "type": "Naturaleza",
+      "slug": "embalse-de-la-tranquera",
+      "short": "Embalse cercano a Carenas, útil para excursiones, paisaje y rutas.",
+      "description": "El Embalse de La Tranquera es uno de los grandes atractivos del entorno de Carenas. Sirve como base para rutas, miradores, fotografías y excursiones hacia Nuévalos, Jaraba y el Monasterio de Piedra.",
+      "address": "Embalse de la Tranquera, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=12681476974532369290&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.6,
+      "reviews": 263,
+      "hours": [],
+      "tags": [
+        "embalse",
+        "naturaleza",
+        "rutas"
+      ],
+      "sourceUrls": [
+        "https://www.iagua.es/data/infraestructuras/embalses/tranquera"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "monasterio-piedra",
+      "name": "Monasterio de Piedra",
+      "type": "Excursiones",
+      "slug": "monasterio-de-piedra",
+      "short": "Excursión cercana desde Carenas, muy interesante para combinar visita cultural y naturaleza.",
+      "description": "El Monasterio de Piedra es una de las excursiones más conocidas cerca de Carenas, a solo 15 minutos en coche. Es un monasterio cisterciense del siglo XIII rodeado de un parque natural con cascadas, lagos y una exuberante vegetación. El recinto incluye el monasterio histórico, un hotel, restaurante y tienda. Abre todos los días de 9:00 a 19:00. Para más información y reservas, puedes llamar al 976 87 07 00 o visitar monasteriodepiedra.com.",
+      "address": "C/ Juan Federico Muntadas y Jornet, s/n, 50210 Nuévalos, Zaragoza, España",
+      "phone": "976 87 07 00",
+      "website": "https://www.monasteriodepiedra.com",
+      "mapsUrl": "https://maps.google.com/?cid=2597184251803389175&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 4.7,
+      "reviews": 33884,
+      "hours": [
+        "lunes: 10:00–18:00",
+        "martes: 10:00–18:00",
+        "miércoles: 10:00–18:00",
+        "jueves: 10:00–18:00",
+        "viernes: 10:00–18:00",
+        "sábado: 10:00–18:00",
+        "domingo: 10:00–18:00"
+      ],
+      "tags": [
+        "monasterio",
+        "naturaleza",
+        "excursión"
+      ],
+      "sourceUrls": [
+        "https://www.monasteriodepiedra.com"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "suite-rural-carenas",
+      "name": "Suite Rural Carenas",
+      "type": "Alojamiento",
+      "slug": "suite-rural-carenas",
+      "short": "Suites con jacuzzi privado en el centro de Carenas. Ideal para parejas.",
+      "description": "Suite Rural Carenas es un alojamiento turístico de gestión independiente situado en pleno centro de Carenas, en la Calle Santa Ana. Ofrece 3 unidades exclusivas con entrada autónoma, jacuzzi privado y decoración cuidada. Dispone de un apartamento de 120m² para grupos de hasta 6 personas y dos suites de 65m² ideales para parejas. El check-in es sin recepción física: reciben las llaves por código vía WhatsApp. Dispone de wifi gratuito, aire acondicionado, calefacción y cocina equipada. El aparcamiento gratuito está disponible en la Plaza de la Iglesia Santa Ana. Aceptan mascotas.",
+      "address": "Calle Santa Ana, 11, 50212 Carenas, Zaragoza",
+      "phone": "+34 677 73 32 15",
+      "website": "https://www.suiteruralcarenas.com",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Suite+Rural+Carenas+Calle+Santa+Ana+11+Carenas",
+      "rating": 4.6,
+      "reviews": 259,
+      "hours": [
+        "Check-in: 16:00-23:30",
+        "Check-out: hasta las 11:00"
+      ],
+      "tags": [
+        "alojamiento",
+        "casa rural",
+        "jacuzzi",
+        "parejas",
+        "self check-in"
+      ],
+      "sourceUrls": [
+        "https://www.suiteruralcarenas.com",
+        "https://www.booking.com/hotel/es/suite-rural-carenas.html",
+        "https://www.instagram.com/suiteruralcarenas",
+        "https://www.facebook.com/suite.rural.carenas"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "valle-rio-piedra",
+      "name": "Valle del Río Piedra",
+      "type": "Alojamiento",
+      "slug": "valle-del-rio-piedra",
+      "short": "5 apartamentos turísticos con jardín de 500m² a orillas del río Piedra.",
+      "description": "Alojamientos Valle del Río Piedra es un complejo de apartamentos rurales en Carenas, situado en la Calle San Pascual, a solo 50 metros del río Piedra. Ofrece 5 apartamentos temáticos (Agua, Árbol, Tierra, Fuego, Aire) con capacidad para 2-6 personas, además de una casa grande para grupos. Dispone de un jardín de 500m², zona de barbacoa, terraza y wifi gratuito. Ideal para familias, grupos de amigos y escapadas rurales. Gestionan también la Casa Rural Espacios del Mundo, ideal para parejas. Disponen de reserva online directa desde su web con detalle de bienvenida.",
+      "address": "C/ San Pascual, s/n, 50212 Carenas, Zaragoza",
+      "phone": "+34 976 842 445 / +34 616 954 520",
+      "website": "https://alojamientosvalledelriopiedra.com",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Valle+del+R%C3%ADo+Piedra+Carenas+San+Pascual",
+      "rating": 4.4,
+      "reviews": 217,
+      "hours": [],
+      "tags": [
+        "alojamiento",
+        "casa rural",
+        "apartamentos",
+        "grupos",
+        "familias",
+        "jardín"
+      ],
+      "sourceUrls": [
+        "https://alojamientosvalledelriopiedra.com",
+        "https://www.booking.com/hotel/es/valle-del-rao-piedra.html",
+        "https://www.tripadvisor.es/Hotel_Review-g2445283-d6117035-Reviews-Valle_Del_Rio_Piedra-Carenas_Province_of_Zaragoza_Aragon.html",
+        "https://www.facebook.com/alojamientosvalledelriopiedra"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "casa-rural-los-pedregales",
+      "name": "Casa Rural Los Pedregales",
+      "type": "Alojamiento",
+      "slug": "casa-rural-los-pedregales",
+      "short": "4 apartamentos con spa en cueva y barbacoa. A 5 min del Embalse de La Tranquera.",
+      "description": "Casa Rural Los Pedregales es un conjunto de 4 apartamentos rurales independientes situado a la entrada de Carenas, en la Calle Alfaro 17. Destaca por su spa en cueva excavado en la roca, ideal para relajarse después de una ruta por el Embalse de La Tranquera. Cada apartamento tiene cocina equipada, salón, baño completo y terraza o balcón con vistas. Dispone de barbacoa compartida, wifi, aire acondicionado, calefacción y aparcamiento. Aceptan mascotas. Piscina municipal gratuita en verano a 200m. Registro turístico: VTR-Z-166. Perfecto para familias y grupos de hasta 18 personas.",
+      "address": "Calle Alfaro, 17, 50212 Carenas, Zaragoza",
+      "phone": "+34 976 84 22 19 / +34 678 49 38 07",
+      "website": "http://www.lospedregales.es",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Casa+Rural+Los+Pedregales+Carenas+Alfaro+17",
+      "rating": 4.6,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "alojamiento",
+        "casa rural",
+        "apartamentos",
+        "spa",
+        "mascotas",
+        "barbacoa"
+      ],
+      "sourceUrls": [
+        "http://www.lospedregales.es",
+        "https://www.booking.com/hotel/es/casa-rural-los-pedregales.html",
+        "https://www.tripadvisor.es/Hotel_Review-g2445283-d4856291-Reviews-Casa_Rural_los_Pedregales-Carenas_Province_of_Zaragoza_Aragon.html",
+        "https://www.escapadarural.com/casa-rural/zaragoza/casa-rural-los-pedregales"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "jaraba",
+      "name": "Jaraba",
+      "type": "Excursiones",
+      "slug": "jaraba",
+      "short": "Pueblo cercano a Carenas, interesante para una excursión de medio día.",
+      "description": "Jaraba es una excursión cercana a Carenas. Puede combinarse con el Monasterio de Piedra, Nuévalos y rutas por el entorno del río Mesa.",
+      "address": "Jaraba, 50237, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=3497447699280867676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "excursión",
+        "pueblo cercano"
+      ],
+      "sourceUrls": [
+        "https://www.komoot.com/es-es/guide/1637721/los-mejores-sitios-que-ver-en-carenas"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "nuevalos",
+      "name": "Nuévalos",
+      "type": "Excursiones",
+      "slug": "nuevalos",
+      "short": "Pueblo cercano al Monasterio de Piedra y al Embalse de La Tranquera.",
+      "description": "Nuévalos es una excursión natural desde Carenas, especialmente útil para visitar el Monasterio de Piedra y combinar turismo cultural con paisaje.",
+      "address": "50210 Nuévalos, Zaragoza, España",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.google.com/?cid=1271498868693982751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "excursión",
+        "monasterio",
+        "pueblo cercano"
+      ],
+      "sourceUrls": [
+        "https://www.komoot.com/es-es/guide/1637721/los-mejores-sitios-que-ver-en-carenas"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "ayuntamiento-carenas",
+      "name": "Ayuntamiento de Carenas",
+      "type": "Servicios",
+      "slug": "ayuntamiento-carenas",
+      "short": "Ayuntamiento de Carenas. Contacto, horarios y servicios municipales.",
+      "description": "El Ayuntamiento de Carenas es la entidad administrativa del municipio, situado en la Calle Peñuela 1, en el centro del pueblo. Está presidido por el alcalde José Vidal Casado Pomareta (PP). Ofrece servicios de atención al ciudadano de lunes a viernes en horario de mañana: empadronamiento, licencias, registro civil y gestión de espacios públicos. El correo electrónico oficial es carenas@dpz.es y dispone de sede electrónica para trámites online. La plantilla municipal cuenta con un empleado y externaliza servicios como la recogida de residuos y el mantenimiento de infraestructuras.",
+      "address": "Calle Peñuela, 1, 50212 Carenas, Zaragoza",
+      "phone": "978 786 001",
+      "website": "https://carenas.sedelectronica.es",
+      "mapsUrl": "https://maps.google.com/?cid=13753326504502318998&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "rating": 2.7,
+      "reviews": 3,
+      "hours": [
+        "Lunes a viernes: 8:00 - 15:00"
+      ],
+      "tags": [
+        "ayuntamiento",
+        "servicios",
+        "trámites",
+        "administración"
+      ],
+      "sourceUrls": [
+        "https://www.ayuntamiento.es/carenas",
+        "https://www.dpz.es/municipio/municipios/carenas",
+        "https://carenas.sedelectronica.es"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "ruta-carenas-tranquera",
+      "name": "Ruta Carenas - Embalse de La Tranquera",
+      "type": "Rutas",
+      "slug": "ruta-carenas-embalse-la-tranquera",
+      "short": "Ruta de referencia para conectar Carenas con el Embalse de La Tranquera.",
+      "description": "Ruta práctica para visitar el entorno del Embalse de La Tranquera desde Carenas. Conviene completar con distancia, duración, desnivel, parking y dificultad tras verificarla sobre el terreno.",
+      "address": "Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Carenas%20Embalse%20de%20La%20Tranquera",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "ruta",
+        "senderismo",
+        "embalse"
+      ],
+      "sourceUrls": [
+        "https://es.wikiloc.com/rutas-senderismo/castillo-de-somet-embalse-de-la-tranquera-carenas-229272230"
+      ],
+      "verified": false,
+      "priority": "high"
+    },
+    {
+      "id": "ruta-castillo-somet-tranquera",
+      "name": "Castillo de Somet - Embalse de La Tranquera",
+      "type": "Rutas",
+      "slug": "ruta-castillo-de-somet-embalse-la-tranquera",
+      "short": "Ruta citada en Wikiloc que combina Castillo de Somet y Embalse de La Tranquera.",
+      "description": "Ruta de senderismo citada en Wikiloc que conecta el Castillo de Somet con el entorno del Embalse de La Tranquera. Es una buena base para crear una página propia con mapa, consejos y enlace al track original.",
+      "address": "Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Castillo%20de%20Somet%20Embalse%20de%20La%20Tranquera",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "ruta",
+        "castillo",
+        "embalse"
+      ],
+      "sourceUrls": [
+        "https://es.wikiloc.com/rutas-senderismo/castillo-de-somet-embalse-de-la-tranquera-carenas-229272230"
+      ],
+      "verified": false,
+      "priority": "high"
+    },
+    {
+      "id": "bar-sala",
+      "name": "Bar Sala",
+      "type": "Restaurantes",
+      "slug": "bar-sala",
+      "short": "El único bar del pueblo. Tapas caseras, bocadillos y su famosa salsa Moji Moji.",
+      "description": "Bar Sala es el bar de referencia en Carenas, regentado por las hermanas María y Sandra Sala desde octubre de 2022. Abrió cuando el anterior bar cerró y el ayuntamiento cedió un espacio municipal para mantener el servicio en el pueblo. Sirven tapas caseras, patatas bravas con su salsa Moji Moji (famosa en la comarca), bocadillos, raciones y menús del día. También tienen una pequeña tienda con productos de supermercado. Abierto todos los días de 9:00 a 0:00. Es el punto de encuentro social del pueblo y parada obligatoria para senderistas y visitantes del Embalse de La Tranquera. Disponen de terraza, servicio de comida para llevar y a domicilio. Aceptan tarjetas y pago móvil.",
+      "address": "Pl. Mayor, 9, 50212 Carenas, Zaragoza",
+      "phone": "633 82 89 12",
+      "website": "",
+      "mapsUrl": "https://www.google.com/maps/place/Bar+Sala/@41.2781676,-1.7974414,16z",
+      "rating": 4.8,
+      "reviews": 84,
+      "hours": [
+        "Lunes a domingo: 9:00 - 0:00"
+      ],
+      "tags": [
+        "bar",
+        "tapas",
+        "cocina casera",
+        "bocadillos",
+        "terraza",
+        "supermercado"
+      ],
+      "sourceUrls": [
+        "https://www.heraldo.es/noticias/aragon/2025/03/31/bar-carenas-hermanas-salas-hosteleria-rural-maria-sandra-1811791.html",
+        "https://www.instagram.com/barsalacarenas",
+        "https://www.google.com/maps/place/Bar+Sala/@41.2781676,-1.7974414,16z"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "merendero-los-canizos",
+      "name": "Bar Merendero Los Cañizos",
+      "type": "Restaurantes",
+      "slug": "merendero-los-canizos",
+      "short": "Chiringuito grill junto al Embalse de La Tranquera. Parrilla, migas y paella.",
+      "description": "El Bar Merendero Los Cañizos es un clásico merendero a orillas del Embalse de La Tranquera, en la carretera A-1501. Especializado en carnes a la brasa, con el famoso concepto de traer tu propia carne y ellos la preparan al carbón. También sirven migas espectaculares, ternasco de Aragón, conejo, oreja a la brasa, morcilla, paella (bajo pedido) y escabeche casero. Dispone de terraza al aire libre con vistas al pantano y zona de merendero rodeada de pinos. Precios populares: menú brasa para dos personas desde 30€. Abre solo en temporada: de San José (19 de marzo) al Pilar (12 de octubre). Efectivo recomendado (no siempre tienen datáfono). Ideal para familias, grupos y motoristas.",
+      "address": "Urb. Pantano de Tranquera, Ctra A-1501, Km 7, 50212 Carenas, Zaragoza",
+      "phone": "976 87 70 06",
+      "website": "https://merenderoloscanizos.webnode.es",
+      "mapsUrl": "https://www.google.com/maps/place/Bar+Merendero+Los+Ca%C3%B1izos/@41.2518898,-1.815417,16z",
+      "rating": 4.0,
+      "reviews": 277,
+      "hours": [
+        "Temporada: 19 marzo - 12 octubre",
+        "Abrir en temporada: consultar horario"
+      ],
+      "tags": [
+        "restaurante",
+        "grill",
+        "carnes a la brasa",
+        "embalse",
+        "terraza",
+        "temporada",
+        "migas"
+      ],
+      "sourceUrls": [
+        "https://merenderoloscanizos.webnode.es",
+        "https://www.tripadvisor.es/Restaurant_Review-g2445283-d15058006-Reviews-Restaurante_Merendero_Los_Canizos-Carenas_Province_of_Zaragoza_Aragon.html",
+        "https://www.google.com/maps/place/Bar+Merendero+Los+Ca%C3%B1izos/@41.2518898,-1.815417,16z"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "restaurante-puerta-terrer",
+      "name": "Restaurante Puerta de Terrer",
+      "type": "Restaurantes",
+      "slug": "restaurante-puerta-terrer",
+      "short": "Referente en Calatayud. Cocina tradicional con toque moderno. Menú de fin de semana desde 19€.",
+      "description": "El Restaurante Puerta de Terrer es uno de los establecimientos de referencia en Calatayud, a unos 25 minutos en coche de Carenas. Ofrece cocina tradicional española con un toque moderno. Destacan su salmorejo, el bacalao, las carrilleras, el risotto y los postres caseros como el tiramisú y la tarta de plátano. Dispone de menú de fin de semana desde 19€ con gran variedad de primeros y segundos. Ambiente acogedor, decoración tipo mesón. Muy popular, recomiendan reservar. Abre solo a mediodía entre semana y también cenas los viernes y sábados.",
+      "address": "C. Herrer y Marco, 8, 50300 Calatayud, Zaragoza",
+      "phone": "976 89 54 66",
+      "website": "https://restaurantepuertadeterrer.com",
+      "mapsUrl": "https://www.google.com/maps/place/Restaurante+Puerta+de+Terrer/@41.353517,-1.6458821,16z",
+      "rating": 4.6,
+      "reviews": 2277,
+      "hours": [
+        "Lunes y martes: Cerrado",
+        "Miércoles y jueves: 13:00-15:30",
+        "Viernes: 13:00-15:30, 20:30-22:00",
+        "Sábado: 13:00-15:30, 20:30-22:30",
+        "Domingo: 13:00-15:30"
+      ],
+      "tags": [
+        "restaurante",
+        "cocina tradicional",
+        "Calatayud",
+        "menú del día",
+        "reserva recomendada"
+      ],
+      "sourceUrls": [
+        "https://restaurantepuertadeterrer.com",
+        "https://www.google.com/maps/place/Restaurante+Puerta+de+Terrer/@41.353517,-1.6458821,16z"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "consultorio-medico",
+      "name": "Consultorio Médico de Carenas",
+      "type": "Servicios",
+      "slug": "consultorio-medico",
+      "short": "Consultorio médico local con atención lunes, miércoles y viernes.",
+      "description": "El Consultorio Médico de Carenas es el punto de atención sanitaria primaria del municipio, situado en el Camino del Balneario. Abre tres días a la semana: lunes, miércoles y viernes a partir de las 12:00 del mediodía. Para urgencias fuera de este horario, el centro de referencia es el Hospital Ernest Lluch de Calatayud, a unos 25 km. No hay farmacia en Carenas; la más cercana se encuentra en Ateca o Calatayud.",
+      "address": "Camino del Balneario, 50212 Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Consultorio+M%C3%A9dico+Carenas+Zaragoza",
+      "rating": null,
+      "reviews": null,
+      "hours": [
+        "Lunes: 12:00 en adelante",
+        "Miércoles: 12:00 en adelante",
+        "Viernes: 12:00 en adelante"
+      ],
+      "tags": [
+        "sanidad",
+        "consulta médica",
+        "atención primaria",
+        "servicios"
+      ],
+      "sourceUrls": [
+        "https://masquemedicos.com/centro-medico_carenas/consultorio-de-carenas/"
+      ],
+      "verified": true,
+      "priority": "high"
+    },
+    {
+      "id": "cra-portico-aragon",
+      "name": "CRA El Mirador",
+      "type": "Servicios",
+      "slug": "cra-el-mirador",
+      "short": "Colegio Rural Agrupado de referencia para Carenas. Educación infantil y primaria.",
+      "description": "Carenas no dispone de centro educativo propio. El colegio de referencia para los niños del municipio es el CRA (Colegio Rural Agrupado) El Mirador, que agrupa varias localidades de la comarca para ofrecer educación infantil y primaria con un equipo docente compartido. Para la educación secundaria (ESO y bachillerato), los alumnos deben desplazarse a Calatayud o Ateca en transporte escolar. Para más información sobre el CRA El Mirador, puedes consultar su web en craelmirador.catedu.es.",
+      "address": "50212 Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "educación",
+        "colegio",
+        "infantil",
+        "primaria",
+        "CRA"
+      ],
+      "sourceUrls": [
+        "https://craelmirador.catedu.es/quienes-somos/"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "instalaciones-municipales",
+      "name": "Instalaciones Municipales de Carenas",
+      "type": "Servicios",
+      "slug": "instalaciones-municipales",
+      "short": "Piscina municipal de Carenas. Abierta en temporada de verano.",
+      "description": "Carenas cuenta con una piscina municipal que abre durante los meses de julio y agosto. Es el principal punto de encuentro en verano para vecinos y visitantes. El recinto dispone de zona de césped, sombras y área de merendero. Está situada a las afueras del casco urbano, a pocos minutos andando desde el centro del pueblo.",
+      "address": "50212 Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.app.goo.gl/qHgoRLSHcLxaX3ULA",
+      "rating": null,
+      "reviews": null,
+      "hours": [
+        "Piscina municipal: julio y agosto"
+      ],
+      "tags": [
+        "instalaciones",
+        "piscina",
+        "verano",
+        "ocio"
+      ],
+      "sourceUrls": [],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "area-autocaravanas",
+      "name": "Área de Autocaravanas de Carenas",
+      "type": "Servicios",
+      "slug": "area-autocaravanas",
+      "short": "Área de servicio para autocaravanas en Carenas. Muy cerca del centro del pueblo.",
+      "description": "El Área de Autocaravanas de Carenas es un espacio habilitado para la estancia de autocaravanas y campers, situado a las afueras del casco urbano, muy cerca de la piscina municipal. Cuenta con una valoración de 4,2 estrellas sobre 5 en Google. Es una parada ideal para quienes recorren la Comarca de Calatayud y quieren visitar Carenas, el Embalse de La Tranquera y el Monasterio de Piedra con su propio vehículo.",
+      "address": "76G3+5W, 50212 Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.app.goo.gl/RP36uonSWSf9FtKH8",
+      "rating": 4.2,
+      "reviews": 11,
+      "hours": [],
+      "tags": [
+        "autocaravanas",
+        "campers",
+        "área de servicio",
+        "turismo rural"
+      ],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/RP36uonSWSf9FtKH8"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "ermita-san-sebastian",
+      "name": "Ermita de San Sebastián",
+      "type": "Patrimonio",
+      "slug": "ermita-de-san-sebastian",
+      "short": "Ermita del siglo XIII, semiderruida. Patrón de Carenas con cofradía de 90 miembros.",
+      "description": "La Ermita de San Sebastián es una construcción del siglo XIII, de estilo gótico rural aragonés. Su planta es rectangular, de nave única, con tres arcos diafragma apuntados que sustentaban su techumbre, hoy desmantelada. Conserva un coro alto a los pies y, bajo él, una estancia que se usaba para leprosos y peregrinos. La puerta de acceso es un arco de media punta y la ermita está orientada al sureste. Hoy se encuentra semiderruida: quedan en pie los arcos y parte de los muros. San Sebastián, el titular, era protector contra las pestes y es el patrón de Carenas. Su cofradía cuenta con 90 cofrades y su fiesta se celebra el 20 de enero. Dos retablos suyos se conservan en la ermita de Santa Ana y en la Iglesia de la Asunción.",
+      "address": "50212 Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.app.goo.gl/LtreGof1pZSfxwuJ7",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "ermita",
+        "patrimonio",
+        "gótico rural",
+        "semiderruida",
+        "san sebastián"
+      ],
+      "sourceUrls": [
+        "https://www.calatayud.org/enciclopedia/carenas_sansebastian.htm"
+      ],
+      "verified": true,
+      "priority": "medium"
+    },
+    {
+      "id": "ermita-santo-sepulcro",
+      "name": "Ermita del Santo Sepulcro",
+      "type": "Patrimonio",
+      "slug": "ermita-del-santo-sepulcro",
+      "short": "Ermita del siglo XVII con retablo de los Luna y un Ecce Homo procesional.",
+      "description": "La Ermita del Santo Sepulcro data del siglo XVII, aunque conserva elementos del XVI. Fue construida por Antonio de Luna, natural de Carenas y beneficiado perpetuo de la iglesia parroquial, según reza una inscripción de 1629. Es de tres naves, con ábside circular. Parte de su planta está excavada en la montaña, lo que le da un aspecto sepulcral. El retablo mayor está flanqueado por dos columnas que sostienen un frontón curvo partido, rematado con el escudo de los Luna y seis calaveras como símbolo de la muerte. La pieza principal es una talla del siglo XVII que representa un Ecce Homo, aunque popularmente se conoce como Cristo Yacente. Se saca en procesión durante la Semana Santa. En el interior se conserva también una pila de agua bendita del siglo XVI ricamente decorada.",
+      "address": "50212 Carenas, Zaragoza",
+      "phone": "",
+      "website": "",
+      "mapsUrl": "https://maps.app.goo.gl/LtreGof1pZSfxwuJ7",
+      "rating": null,
+      "reviews": null,
+      "hours": [],
+      "tags": [
+        "ermita",
+        "patrimonio",
+        "barroco",
+        "sepulcro",
+        "semana santa",
+        "luna"
+      ],
+      "sourceUrls": [
+        "https://www.calatayud.org/enciclopedia/carenas_sepulcro.htm"
+      ],
+      "verified": true,
+      "priority": "medium"
+    }
+  ]
+}

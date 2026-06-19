@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PlaceGrid from '../components/PlaceGrid.astro';
+import { placesByType } from '../lib/utils';
+
+const items = placesByType('Restaurantes');
+---
+
+<BaseLayout
+  title="Dónde comer en Carenas | Bares, restaurantes y tapas"
+  description="Dónde comer en Carenas: bar de tapas caseras en el pueblo y restaurante grill junto al Embalse de La Tranquera. Descubre dónde comer bien en Carenas."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow="Dónde comer"
+        title="De tapas por Carenas o barbacoa junto al pantano."
+        description="Tres opciones: el Bar Sala en la plaza del pueblo con tapas caseras y su famosa salsa Moji Moji (4.8⭐, abre todo el año), el Bar Merendero Los Cañizos a orillas del embalse con carnes a la brasa en temporada, y el Restaurante Puerta de Terrer en Calatayud, referencia de cocina tradicional con menú desde 19€."
+        primaryText="Ver mapa"
+        primaryHref="/mapa/"
+        secondaryText="Colaborar"
+        secondaryHref="/publicar/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Restaurantes"
+        title="Dónde comer y tomar algo en Carenas."
+        description="Dos opciones verificadas: el bar del pueblo abierto todo el año y el merendero grill de temporada junto al embalse. Ambas con cocina casera y precios populares."
+      />
+      <PlaceGrid places={items} emptyText="Falta recopilar restaurantes." />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

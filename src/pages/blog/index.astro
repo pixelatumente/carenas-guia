@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+const posts = [
+  {
+    slug: 'demografia-carenas',
+    title: 'La radiografía demográfica de Carenas: 169 habitantes y una edad media de 58 años',
+    description: 'Carenas ha perdido un tercio de su población desde 1996. La estructura demográfica explica por sí sola los desafíos del municipio.',
+    date: '2026-06-01',
+    category: 'Pueblo',
+  },
+  {
+    slug: 'economia-y-oportunidades',
+    title: 'Economía local y oportunidades de inversión en Carenas',
+    description: 'Sin apenas tejido empresarial, Carenas ofrece oportunidades para emprendedores en turismo rural, hostelería y servicios.',
+    date: '2026-06-03',
+    category: 'Economía',
+  },
+  {
+    slug: 'castillo-de-somet',
+    title: 'El Castillo de Somet: una fortaleza del siglo IX en Carenas',
+    description: 'Documentado en el año 829, es una de las fortalezas más antiguas de la Comarca de Calatayud. Hoy es zona arqueológica protegida.',
+    date: '2026-06-06',
+    category: 'Patrimonio',
+  },
+  {
+    slug: 'analisis-dafo-carenas',
+    title: 'Análisis DAFO de Carenas: fortalezas, debilidades y oportunidades',
+    description: 'Un análisis estratégico del municipio: el embalse, el patrimonio y la cercanía al Monasterio de Piedra como claves frente a la despoblación.',
+    date: '2026-06-08',
+    category: 'Pueblo',
+  },
+  {
+    slug: 'ermita-de-santa-ana',
+    title: 'La Ermita de Santa Ana: la más grande de la Comarca de Calatayud',
+    description: 'Con 37 metros de longitud, es la ermita más grande de toda la comarca. Su historia arranca en un pueblo medieval desaparecido llamado Vinomás.',
+    date: '2026-06-11',
+    category: 'Patrimonio',
+  },
+  {
+    slug: 'embalse-de-la-tranquera',
+    title: 'Embalse de La Tranquera: naturaleza, baño y deportes náuticos',
+    description: 'El gran atractivo natural de Carenas. 84 hm³ de agua rodeados de pinar ideales para piragüismo, pesca y rutas.',
+    date: '2026-06-13',
+    category: 'Naturaleza',
+  },
+  {
+    slug: 'bodegas-subterraneas',
+    title: 'El laberinto bajo Carenas: más de 200 bodegas subterráneas',
+    description: 'Bajo las casas del pueblo se extiende una red de más de 200 cuevas excavadas en la roca. Un patrimonio vinícola único en la provincia.',
+    date: '2026-06-15',
+    category: 'Cultura',
+  },
+  {
+    slug: 'trueque-de-los-nueve-santos',
+    title: 'La leyenda del Trueque de los Nueve Santos',
+    description: 'La historia más fascinante de Carenas: cambiaron nueve estatuas de santos por tierras que luego tragó el embalse.',
+    date: '2026-06-17',
+    category: 'Historia',
+  },
+  {
+    slug: 'fiestas-y-tradiciones',
+    title: 'Fiestas y tradiciones de Carenas: un pueblo que celebra',
+    description: 'San Sebastián, San Pascual, las fiestas de Santiago y Santa Ana, y las asociaciones que mantienen viva la vida del pueblo.',
+    date: '2026-06-19',
+    category: 'Cultura',
+  },
+];
+---
+
+<BaseLayout
+  title="Blog de Carenas | Historias, rutas y guía del pueblo"
+  description="Artículos sobre Carenas: patrimonio, historia, naturaleza, economía y tradiciones. Descubre todo lo que este pueblo de Zaragoza tiene para ofrecer."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Blog"
+        title="Historias de Carenas."
+        description="Artículos sobre el patrimonio, la historia, la naturaleza, la economía y las tradiciones de Carenas, escritos a partir de fuentes documentales y datos verificados."
+      />
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}/`} class="card p-6 transition hover:-translate-y-1" style="text-decoration: none;">
+            <p class="text-xs font-bold uppercase tracking-[0.15em]" style="color: var(--badge-text);">
+              {post.category}
+              <span class="mx-2 opacity-50">·</span>
+              {new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}
+            </p>
+            <h2 class="mt-3 text-xl font-black tracking-tight" style="color: var(--text);">{post.title}</h2>
+            <p class="mt-2 text-sm leading-6" style="color: var(--text-secondary);">{post.description}</p>
+            <span class="mt-4 inline-flex text-sm font-bold" style="color: var(--badge-text);">Leer artículo →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

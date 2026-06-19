@@ -1,0 +1,106 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  pubDate: string;
+  author?: string;
+  image?: string;
+}
+
+const { title, description, pubDate, author = 'Carenas Guía', image } = Astro.props;
+---
+
+<article class="mx-auto max-w-3xl">
+  <header class="mb-12">
+    <p class="text-sm font-black uppercase tracking-[0.2em]" style="color: var(--badge-text);">
+      {new Date(pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+      <span class="mx-2 opacity-50">·</span>
+      {author}
+    </p>
+    <h1 class="mt-4 text-4xl font-black tracking-tight md:text-5xl" style="color: var(--text);">{title}</h1>
+    {description && <p class="mt-4 text-lg leading-8" style="color: var(--text-secondary);">{description}</p>}
+  </header>
+  <div class="blog-content" style="color: var(--text);">
+    <slot />
+  </div>
+</article>
+
+<style>
+  .blog-content :global(h2) {
+    font-size: 1.75rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--badge-text);
+    color: var(--text);
+  }
+
+  .blog-content :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--badge-text);
+  }
+
+  .blog-content :global(p) {
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+  }
+
+  .blog-content :global(ul) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .blog-content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .blog-content :global(strong) {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .blog-content :global(a) {
+    color: var(--badge-text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .blog-content :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  .blog-content :global(blockquote) {
+    border-left: 3px solid var(--badge-text);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+    opacity: 0.85;
+  }
+
+  .blog-content :global(.fuentes) {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1rem;
+    background: var(--surface-muted);
+    border: 1px solid var(--line);
+  }
+
+  .blog-content :global(.fuentes p),
+  .blog-content :global(.fuentes em) {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  images: string[];
+  title?: string;
+}
+
+const { images, title = 'Galería de fotos' } = Astro.props;
+---
+
+{images.length > 0 && (
+  <section class="mx-auto max-w-6xl px-5 py-10 md:py-16 md:px-0">
+    <div class="mb-6">
+      <p class="text-sm font-black uppercase tracking-[0.22em]" style="color: var(--badge-text);">Fotos</p>
+      <h2 class="mt-2 text-3xl font-black tracking-tight" style="color: var(--text);">{title}</h2>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      {images.map((image, index) => (
+        <figure class="overflow-hidden rounded-[1.5rem] shadow-sm" style="border: 1px solid var(--line); background: var(--surface);">
+          <img
+            src={image}
+            alt=""
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="h-64 w-full object-cover"
+          />
+        </figure>
+      ))}
+    </div>
+  </section>
+)}

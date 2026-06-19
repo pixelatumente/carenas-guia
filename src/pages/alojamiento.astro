@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PlaceGrid from '../components/PlaceGrid.astro';
+import { placesByType } from '../lib/utils';
+
+const items = placesByType('Alojamiento');
+---
+
+<BaseLayout
+  title="Dónde dormir en Carenas | Casas rurales y alojamientos"
+  description="Dónde dormir en Carenas: casas rurales, apartamentos y suites con jacuzzi. Compara opiniones, precios y reserva directa en los mejores alojamientos de Carenas."
+>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <Hero
+        eyebrow="Dónde dormir"
+        title="Escapada rural con encanto en Carenas."
+        description="Tres alojamientos verificados con datos reales: desde suites con jacuzzi en el centro del pueblo hasta apartamentos con spa en cueva y casas rurales con jardín junto al río Piedra. Teléfonos, webs y reserva directa."
+        primaryText="Ver mapa"
+        primaryHref="/mapa/"
+        secondaryText="Colaborar"
+        secondaryHref="/publicar/"
+      />
+    </section>
+
+    <section class="mx-auto max-w-6xl px-5 py-10 md:py-16">
+      <SectionHeading
+        eyebrow="Alojamientos"
+        title="Casas rurales y apartamentos en Carenas."
+        description="Datos verificados con teléfono, web, valoraciones y enlace directo a reserva. Todos los alojamientos están en Carenas o a menos de 5 minutos del centro."
+      />
+      <PlaceGrid places={items} emptyText="Falta recopilar alojamientos." />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

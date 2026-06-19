@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" width="200" height="32">
+  <!-- Icon: mountain + water, bigger -->
+  <g transform="translate(2, 2)">
+    <path d="M3 24 L10 6 L16 16 L22 2 L30 20 L34 12 L40 24 Z" 
+          fill="none" stroke="var(--badge-text, #0f766e)" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M1 26 Q20 22 42 26" fill="none" stroke="var(--badge-text, #0f766e)" stroke-width="1.5" opacity="0.35"/>
+  </g>
+
+  <!-- Text -->
+  <text x="52" y="23" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" 
+        font-size="16" font-weight="800" letter-spacing="-0.01em" fill="var(--text, #1f1b16)">carenas</text>
+  <text x="121" y="23" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" 
+        font-size="16" font-weight="300" letter-spacing="0.03em" fill="var(--badge-text, #0f766e)">guía</text>
+</svg>
