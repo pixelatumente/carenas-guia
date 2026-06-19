@@ -18,5 +18,8 @@
     "astro": "^6.4.6",
     "decap-cms-app": "^3.14.1",
     "tailwindcss": "^4.3.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "workerd"]
   }
 }
