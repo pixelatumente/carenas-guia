@@ -1,12 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carenas Guía - Admin</title>
-  <script src="https://unpkg.com/decap-cms-app@3.14.1/dist/decap-cms-app.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin · Carenas Guía</title>
+<style>
+* { box-sizing: border-box; margin: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1f1b16; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+.card { background: #fff; border-radius: 16px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #0f766e; }
+p { color: #666; font-size: 14px; margin-bottom: 16px; }
+label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px; margin-top: 12px; }
+input, textarea, select { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 14px; }
+textarea { min-height: 80px; resize: vertical; font-family: monospace; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: #1f1b16; color: #fff; box-shadow: 0 4px 12px rgba(31,27,22,0.15); }
+.btn-soft { background: #fff; color: #1f1b16; border: 1px solid #ddd; }
+.btn-sm { padding: 6px 14px; font-size: 13px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.flex { display: flex; gap: 8px; align-items: center; }
+.mt-2 { margin-top: 12px; }
+.mb-2 { margin-bottom: 12px; }
+.hidden { display: none; }
+.tag { display: inline-block; background: #ecfeff; color: #0f766e; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; margin: 2px; }
+.tag-x { cursor: pointer; margin-left: 4px; }
+.badge { display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+.lugar-card { padding: 16px; border: 1px solid #eee; border-radius: 12px; margin-bottom: 8px; cursor: pointer; transition: background .15s; }
+.lugar-card:hover { background: #fafafa; }
+.lugar-card.selected { border-color: #0f766e; background: #f0fdfa; }
+#login-screen { text-align: center; padding: 80px 20px; }
+#login-screen input { max-width: 400px; margin: 0 auto; }
+.toast { position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; border-radius: 12px; color: #fff; font-weight: 600; font-size: 14px; z-index: 999; }
+.toast.ok { background: #0f766e; }
+.toast.err { background: #dc2626; }
+</style>
 </head>
 <body>
-  <script src="/admin/config.js"></script>
+<div class="container" id="app">
+  <div class="card" style="display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <h1>Admin · Carenas Guía</h1>
+      <p>Panel de edición de la base de datos</p>
+    </div>
+    <button class="btn btn-soft btn-sm" onclick="logout()">Salir</button>
+  </div>
+
+  <div id="login-screen" class="card">
+    <h2 style="border:none">Acceder</h2>
+    <p style="max-width:500px;margin:0 auto 16px">Introduce un token de GitHub con permisos de repo.<br>Se guarda en tu navegador y no se envía a ningún servidor.</p>
+    <input type="password" id="token-input" placeholder="github_pat_xxxxxxxxxxxx" style="margin-bottom:8px">
+    <button class="btn btn-primary" onclick="login()">Acceder</button>
+    <p style="margin-top:12px;font-size:12px;color:#999">Crea un token en github.com/settings/tokens (permiso: repo)</p>
+  </div>
+
+  <div id="main-screen" class="hidden">
+    <div class="flex mb-2">
+      <button class="btn btn-primary btn-sm" onclick="loadPlaces()">↻ Recargar</button>
+      <button class="btn btn-soft btn-sm" onclick="saveAll()">💾 Guardar todo</button>
+      <span id="save-status" style="font-size:13px;color:#666;margin-left:8px"></span>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="padding:16px">
+        <h2 style="border:none;font-size:15px;margin:0">Lugares</h2>
+        <input type="text" id="filter-input" placeholder="Filtrar..." style="margin:8px 0;padding:6px 10px;font-size:13px" oninput="renderList()">
+        <div id="places-list"></div>
+        <button class="btn btn-soft btn-sm mt-2" onclick="addPlace()">+ Nuevo lugar</button>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <h2 style="border:none;font-size:15px;margin:0" id="editor-title">Selecciona un lugar</h2>
+        <div id="place-editor"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const GITHUB_REPO = 'pixelatumente/carenas-guia';
+const GITHUB_FILE = 'src/data/carenas.json';
+let token = localStorage.getItem('gh_token') || '';
+let data = null;
+let selectedId = null;
+let sha = null;
+
+function toast(msg, type) {
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+async function api(path, method, body) {
+  const opts = { method, headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github.v3+json' }};
+  if (body) opts.body = JSON.stringify(body);
+  const r = await fetch('https://api.github.com' + path, opts);
+  if (!r.ok) throw new Error(await r.text().then(t => t.substring(0,100)));
+  return r.status === 204 ? null : r.json();
+}
+
+function login() {
+  const t = document.getElementById('token-input').value.trim();
+  if (!t) return;
+  token = t;
+  localStorage.setItem('gh_token', t);
+  loadData();
+}
+
+function logout() {
+  token = '';
+  localStorage.removeItem('gh_token');
+  document.getElementById('login-screen').classList.remove('hidden');
+  document.getElementById('main-screen').classList.add('hidden');
+}
+
+async function loadData() {
+  try {
+    const res = await fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/' + GITHUB_FILE, {
+      headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) {
+      if (res.status === 401) { toast('Token inválido', 'err'); return; }
+      throw new Error(await res.text());
+    }
+    const body = await res.json();
+    sha = body.sha;
+    data = JSON.parse(atob(body.content.replace(/\n/g, '')));
+    document.getElementById('login-screen').classList.add('hidden');
+    document.getElementById('main-screen').classList.remove('hidden');
+    renderList();
+    if (data.places.length) selectPlace(data.places[0].id);
+  } catch(e) {
+    toast('Error al cargar: ' + e.message, 'err');
+  }
+}
+
+function renderList() {
+  const filter = (document.getElementById('filter-input').value || '').toLowerCase();
+  const list = document.getElementById('places-list');
+  list.innerHTML = data.places
+    .filter(p => p.name.toLowerCase().includes(filter) || p.type.toLowerCase().includes(filter))
+    .map(p => `<div class="lugar-card ${p.id === selectedId ? 'selected' : ''}" onclick="selectPlace('${p.id}')">
+      <strong>${p.name}</strong> <span class="badge">${p.type}</span>
+    </div>`).join('');
+}
+
+function selectPlace(id) {
+  selectedId = id;
+  const p = data.places.find(x => x.id === id);
+  if (!p) return;
+  renderList();
+  document.getElementById('editor-title').textContent = '✏️ ' + p.name;
+  const ed = document.getElementById('place-editor');
+  ed.innerHTML = `
+    <label>ID</label><input value="${p.id}" onchange="updateSel('id',this.value)">
+    <label>Nombre</label><input value="${escHtml(p.name)}" onchange="updateSel('name',this.value)">
+    <label>Tipo</label>
+    <select onchange="updateSel('type',this.value)">
+      ${['Pueblo','Patrimonio','Naturaleza','Alojamiento','Excursiones','Servicios','Rutas','Restaurantes'].map(t =>
+        `<option ${t===p.type?'selected':''}>${t}</option>`).join('')}
+    </select>
+    <label>Slug</label><input value="${p.slug}" onchange="updateSel('slug',this.value)">
+    <label>Descripción corta</label><textarea onchange="updateSel('short',this.value)">${escHtml(p.short||'')}</textarea>
+    <label>Descripción larga</label><textarea rows="4" onchange="updateSel('description',this.value)">${escHtml(p.description||'')}</textarea>
+    <label>Dirección</label><input value="${escHtml(p.address||'')}" onchange="updateSel('address',this.value)">
+    <label>Teléfono</label><input value="${escHtml(p.phone||'')}" onchange="updateSel('phone',this.value)">
+    <label>Web</label><input value="${escHtml(p.website||'')}" onchange="updateSel('website',this.value)">
+    <label>Valoración</label><input type="number" step="0.1" min="0" max="5" value="${p.rating||''}" onchange="updateSel('rating',this.value?parseFloat(this.value):null)">
+    <label>Reseñas</label><input type="number" value="${p.reviews||''}" onchange="updateSel('reviews',this.value?parseInt(this.value):null)">
+    <div class="flex mt-2">
+      <button class="btn btn-soft btn-sm" onclick="deletePlace('${p.id}')" style="color:#dc2626">Eliminar</button>
+    </div>
+  `;
+}
+
+function updateSel(field, value) {
+  const p = data.places.find(x => x.id === selectedId);
+  if (p) p[field] = value;
+}
+
+function escHtml(s) { return String(s).replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+function addPlace() {
+  const id = 'nuevo-' + Date.now();
+  data.places.push({ id, name: 'Nuevo lugar', type: 'Servicios', slug: id, short: '', description: '', address: '', phone: '', website: '', rating: null, reviews: null, hours: [], tags: [], sourceUrls: [], verified: false, priority: 'medium' });
+  selectPlace(id);
+  toast('Lugar añadido. Rellena los datos y guarda.', 'ok');
+}
+
+function deletePlace(id) {
+  if (!confirm('¿Eliminar este lugar?')) return;
+  data.places = data.places.filter(p => p.id !== id);
+  selectedId = null;
+  document.getElementById('place-editor').innerHTML = '';
+  renderList();
+  toast('Lugar eliminado. Guarda los cambios.', 'ok');
+}
+
+async function saveAll() {
+  const btn = document.querySelector('button[onclick="saveAll()"]');
+  btn.disabled = true;
+  btn.textContent = 'Guardando...';
+  document.getElementById('save-status').textContent = '';
+  try {
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+    await api('/repos/' + GITHUB_REPO + '/contents/' + GITHUB_FILE, 'PUT', {
+      message: 'Update lugares from admin',
+      content, sha
+    });
+    sha = (await api('/repos/' + GITHUB_REPO + '/contents/' + GITHUB_FILE, 'GET')).sha;
+    toast('✅ Guardado correctamente. El sitio se desplegará en breve.', 'ok');
+    document.getElementById('save-status').textContent = '✅ Guardado';
+  } catch(e) {
+    toast('Error: ' + e.message, 'err');
+  }
+  btn.disabled = false;
+  btn.textContent = '💾 Guardar todo';
+}
+
+function loadPlaces() { loadData(); }
+
+// Auto-login if token exists
+if (token) loadData();
+</script>
 </body>
 </html>
