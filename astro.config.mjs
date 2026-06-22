@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://carenasguia.es',
+  site: 'https://carenas.net',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

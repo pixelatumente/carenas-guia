@@ -129,7 +129,7 @@ async function loadData() {
     }
     const body = await res.json();
     sha = body.sha;
-    data = JSON.parse(atob(body.content.replace(/\n/g, '')));
+    data = JSON.parse(decodeURIComponent(escape(atob(body.content.replace(/\n/g, '')))));
     document.getElementById('login-screen').classList.add('hidden');
     document.getElementById('main-screen').classList.remove('hidden');
     renderList();
